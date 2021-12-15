@@ -11,3 +11,6 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 /.idea
 *.iml
+/chars
+/data
+/${project.build.directory}
