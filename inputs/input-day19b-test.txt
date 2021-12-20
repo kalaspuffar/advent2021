@@ -1,0 +1,5 @@
+Found 0 = Beacon{x=0, y=0, z=0}
+Found 1 = Beacon{x=68, y=-1246, z=-43}
+Found 2 = Beacon{x=1105, y=-1205, z=1229}
+Found 3 = Beacon{x=-92, y=-2380, z=-20}
+Found 4 = Beacon{x=-20, y=-1133, z=1061}
