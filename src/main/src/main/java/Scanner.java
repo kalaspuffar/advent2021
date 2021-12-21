@@ -105,6 +105,6 @@ public class Scanner {
     }
 
     public long getManhattanDistance(Scanner s) {
-        return (this.x - s.x) + (this.y - s.y) + (this.z - s.z);
+        return Math.abs(s.x - this.x) + Math.abs(s.y - this.y) + Math.abs(s.z - this.z);
     }
 }
