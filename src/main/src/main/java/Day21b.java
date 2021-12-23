@@ -1,36 +1,62 @@
+import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Day21b {
-    public static void main(String[] args) {
-        QuantumDie die = new QuantumDie();
 
-        int p1Win = 0;
-        int p2Win = 0;
+    public static BigInteger countUniverse(int num, int p1pos, int p2pos, int p1points, int p2points, boolean myturn, boolean first) {
+        BigInteger sum = BigInteger.ZERO;
 
-        for(int i = 0; i < 10000; i++) {
-            //Player p1 = new Player(4);
-            //Player p2 = new Player(8);
-            Player p1 = new Player(8);
-            Player p2 = new Player(9);
-
-            boolean playerOnesTurn = true;
-            while (!p1.hasWon() && !p2.hasWon()) {
-                if (playerOnesTurn) {
-                    p1.takeTurn(die);
-                } else {
-                    p2.takeTurn(die);
+        if (!first) {
+            if (myturn) {
+                p1pos += num;
+                p1pos = p1pos % 10;
+                p1points += p1pos + 1;
+                if (p1points >= 21) {
+                    return BigInteger.ONE;
                 }
-                playerOnesTurn = !playerOnesTurn;
-            }
-            if(p1.hasWon()) {
-                p1Win++;
             } else {
-                p2Win++;
+                p2pos += num;
+                p2pos = p2pos % 10;
+                p2points += p2pos + 1;
+                if (p2points >= 21) {
+                    return BigInteger.ZERO;
+                }
             }
+            myturn = !myturn;
+        } else {
+            p1pos--;
+            p2pos--;
         }
 
-        System.out.println("P1 Wins: " + p1Win);
-        System.out.println("P2 Wins: " + p2Win);
+        sum = sum.add(countUniverse(3, p1pos, p2pos, p1points, p2points, myturn, false).multiply(new BigInteger("1")));
+        sum = sum.add(countUniverse(4, p1pos, p2pos, p1points, p2points, myturn, false).multiply(new BigInteger("3")));
+        sum = sum.add(countUniverse(5, p1pos, p2pos, p1points, p2points, myturn, false).multiply(new BigInteger("6")));
+        sum = sum.add(countUniverse(6, p1pos, p2pos, p1points, p2points, myturn, false).multiply(new BigInteger("7")));
+        sum = sum.add(countUniverse(7, p1pos, p2pos, p1points, p2points, myturn, false).multiply(new BigInteger("6")));
+        sum = sum.add(countUniverse(8, p1pos, p2pos, p1points, p2points, myturn, false).multiply(new BigInteger("3")));
+        sum = sum.add(countUniverse(9, p1pos, p2pos, p1points, p2points, myturn, false).multiply(new BigInteger("1")));
+
+        return sum;
+    }
+
+
+    public static void main(String[] args) {
+
+        System.out.println("Total P1: " + countUniverse(0, 4, 8, 0, 0, true, true));
+        System.out.println("Total P2: " + countUniverse(0, 8, 4, 0, 0, false, true));
+
+        System.out.println("Total P1: " + countUniverse(0, 8, 9, 0, 0, true, true));
+        System.out.println("Total P2: " + countUniverse(0, 9, 8, 0, 0, false, true));
     }
 }
+
+// 444356092776315
+// 341960390180808
+/*
+Total P1: 430229563871565
+Total P2: 370143448743170
+Total P1: 157595953724471
+Total P2: 121908465540796
+
+ */
