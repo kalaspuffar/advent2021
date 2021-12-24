@@ -59,7 +59,6 @@ public class Scanner {
             }
         }
 
-        Instant before = Instant.now();
         for (Beacon pos : possiblePositions) {
             List<List<Beacon>> testBeacons = new ArrayList<>();
             for (Beacon b : beacons) {
@@ -71,12 +70,10 @@ public class Scanner {
                 if (num > 11) {
                     changePos(pos.getX(), pos.getY(), pos.getZ(), testBeacons, i);
                     System.out.println("Found " + id + " = " + pos);
-                    System.out.println(Duration.between(before, Instant.now()));
                     return true;
                 }
             }
         }
-        System.out.println(Duration.between(before, Instant.now()));
         return false;
     }
 

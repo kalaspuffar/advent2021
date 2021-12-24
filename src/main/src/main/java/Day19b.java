@@ -9,8 +9,8 @@ import java.util.Set;
 public class Day19b {
     public static void main(String[] args) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("inputs/input-day19b.txt"));
-            //BufferedReader br = new BufferedReader(new FileReader("inputs/input-day19b-test.txt"));
+            //BufferedReader br = new BufferedReader(new FileReader("inputs/input-day19b.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("inputs/input-day19b-test.txt"));
 
             List<Scanner> scanners = new ArrayList<>();
 
@@ -35,6 +35,11 @@ public class Day19b {
 
             System.out.println("Number of scanners: " + scanners.size());
             System.out.println("Largest manhattan distance: " + largestDistance);
+
+
+            //Number of scanners: 25
+            //Largest manhattan distance: 12247 - Too high
+
         } catch (Exception e) {
             e.printStackTrace();
         }
