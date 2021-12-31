@@ -1,0 +1,78 @@
+inp w
+add z w
+add z 2
+inp w
+mul z 26
+add z w
+add z 4
+inp w
+mul z 26
+add z w
+add z 8
+inp w
+mul z 26
+add z w
+add z 7
+inp w
+mul z 26
+add z w
+add z 12
+inp w
+div z 26
+mul z 26
+add z w
+add z 7
+inp w
+div z 26
+mul z 26
+add z w
+add z 10
+inp w
+mul z 26
+add z w
+add z 14
+inp w
+div z 26
+mul z 26
+add z w
+add z 2
+inp w
+mul z 26
+add z w
+add z 6
+inp w
+div z 26
+mul z 26
+add z w
+add z 8
+inp w
+div z 26
+mul z 26
+add z w
+add z 11
+add x w
+inp w
+neq x w
+div z 26
+set y 25
+mul y x
+add y 1
+mul z y
+set y w
+add y 5
+mul y x
+add z y
+inp w
+set x z
+mod x 26
+add x -2
+neq x w
+div z 26
+set y 25
+mul y x
+add y 1
+mul z y
+set y w
+add y 11
+mul y x
+add z y
